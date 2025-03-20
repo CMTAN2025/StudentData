@@ -14,7 +14,7 @@ namespace DXApplication1.CLASSES
         public string LastName { get; set; }
         public int Age { get; set; }
         public string Course { get; set; }
-        public int YearLevel { get; set; }
+        public string YearLevel { get; set; }
 
     }
 }

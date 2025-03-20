@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new DevExpress.XtraEditors.SimpleButton();
+            this.btnRemove = new DevExpress.XtraEditors.SimpleButton();
             this.btnUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             this.grpControlListOfStudent = new DevExpress.XtraEditors.GroupControl();
+            this.grdControlListOfStudent = new DevExpress.XtraGrid.GridControl();
+            this.grdViewListOfStudent = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.FirstName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LastName = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Age = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Course = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.YearLevel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblControlSearch = new DevExpress.XtraEditors.LabelControl();
-            this.txtEditSearch = new DevExpress.XtraEditors.TextEdit();
+            this.txtEditSearchStudent = new DevExpress.XtraEditors.TextEdit();
             this.txtEditYearLevel = new DevExpress.XtraEditors.TextEdit();
             this.txtEditCourse = new DevExpress.XtraEditors.TextEdit();
             this.txtEditAge = new DevExpress.XtraEditors.TextEdit();
@@ -47,36 +55,31 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lblControlStudentData = new DevExpress.XtraEditors.LabelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.gridViewListOfStudent = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.FirstName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MiddleName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.LastName = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Age = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.Course = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.YearLevel = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.btnSearchStudent = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.grpControlListOfStudent)).BeginInit();
             this.grpControlListOfStudent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditSearch.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdControlListOfStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewListOfStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEditSearchStudent.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditYearLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditCourse.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditAge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditLastName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditMiddleName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditFirstName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewListOfStudent)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnDelete
+            // btnRemove
             // 
-            this.btnDelete.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Appearance.Options.UseFont = true;
-            this.btnDelete.Location = new System.Drawing.Point(441, 183);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
-            this.btnDelete.TabIndex = 34;
-            this.btnDelete.Text = "DELETE";
+            this.btnRemove.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemove.Appearance.Options.UseFont = true;
+            this.btnRemove.Location = new System.Drawing.Point(441, 183);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(94, 29);
+            this.btnRemove.TabIndex = 34;
+            this.btnRemove.Text = "REMOVE";
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnUpdate
             // 
@@ -87,6 +90,7 @@
             this.btnUpdate.Size = new System.Drawing.Size(94, 29);
             this.btnUpdate.TabIndex = 33;
             this.btnUpdate.Text = "UPDATE";
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
             // 
@@ -101,14 +105,97 @@
             // 
             // grpControlListOfStudent
             // 
-            this.grpControlListOfStudent.Controls.Add(this.gridControl1);
+            this.grpControlListOfStudent.Controls.Add(this.btnSearchStudent);
+            this.grpControlListOfStudent.Controls.Add(this.grdControlListOfStudent);
             this.grpControlListOfStudent.Controls.Add(this.lblControlSearch);
-            this.grpControlListOfStudent.Controls.Add(this.txtEditSearch);
+            this.grpControlListOfStudent.Controls.Add(this.txtEditSearchStudent);
             this.grpControlListOfStudent.Location = new System.Drawing.Point(116, 239);
             this.grpControlListOfStudent.Name = "grpControlListOfStudent";
             this.grpControlListOfStudent.Size = new System.Drawing.Size(595, 309);
             this.grpControlListOfStudent.TabIndex = 31;
             this.grpControlListOfStudent.Text = "LIST OF STUDENTS";
+            // 
+            // grdControlListOfStudent
+            // 
+            this.grdControlListOfStudent.Location = new System.Drawing.Point(11, 68);
+            this.grdControlListOfStudent.MainView = this.grdViewListOfStudent;
+            this.grdControlListOfStudent.Name = "grdControlListOfStudent";
+            this.grdControlListOfStudent.Size = new System.Drawing.Size(549, 236);
+            this.grdControlListOfStudent.TabIndex = 8;
+            this.grdControlListOfStudent.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grdViewListOfStudent});
+            // 
+            // grdViewListOfStudent
+            // 
+            this.grdViewListOfStudent.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.FirstName,
+            this.MiddleName,
+            this.LastName,
+            this.Age,
+            this.Course,
+            this.YearLevel});
+            this.grdViewListOfStudent.GridControl = this.grdControlListOfStudent;
+            this.grdViewListOfStudent.Name = "grdViewListOfStudent";
+            // 
+            // FirstName
+            // 
+            this.FirstName.Caption = "First Name";
+            this.FirstName.FieldName = "FirstName";
+            this.FirstName.MinWidth = 25;
+            this.FirstName.Name = "FirstName";
+            this.FirstName.Visible = true;
+            this.FirstName.VisibleIndex = 0;
+            this.FirstName.Width = 94;
+            // 
+            // MiddleName
+            // 
+            this.MiddleName.Caption = "Middle Name";
+            this.MiddleName.FieldName = "MiddleName";
+            this.MiddleName.MinWidth = 25;
+            this.MiddleName.Name = "MiddleName";
+            this.MiddleName.Visible = true;
+            this.MiddleName.VisibleIndex = 1;
+            this.MiddleName.Width = 94;
+            // 
+            // LastName
+            // 
+            this.LastName.Caption = "Last Name";
+            this.LastName.FieldName = "LastName";
+            this.LastName.MinWidth = 25;
+            this.LastName.Name = "LastName";
+            this.LastName.Visible = true;
+            this.LastName.VisibleIndex = 2;
+            this.LastName.Width = 94;
+            // 
+            // Age
+            // 
+            this.Age.Caption = "Age";
+            this.Age.FieldName = "Age";
+            this.Age.MinWidth = 25;
+            this.Age.Name = "Age";
+            this.Age.Visible = true;
+            this.Age.VisibleIndex = 3;
+            this.Age.Width = 94;
+            // 
+            // Course
+            // 
+            this.Course.Caption = "Course";
+            this.Course.FieldName = "Course";
+            this.Course.MinWidth = 25;
+            this.Course.Name = "Course";
+            this.Course.Visible = true;
+            this.Course.VisibleIndex = 4;
+            this.Course.Width = 94;
+            // 
+            // YearLevel
+            // 
+            this.YearLevel.Caption = "Year Level";
+            this.YearLevel.FieldName = "YearLevel";
+            this.YearLevel.MinWidth = 25;
+            this.YearLevel.Name = "YearLevel";
+            this.YearLevel.Visible = true;
+            this.YearLevel.VisibleIndex = 5;
+            this.YearLevel.Width = 94;
             // 
             // lblControlSearch
             // 
@@ -120,12 +207,12 @@
             this.lblControlSearch.TabIndex = 7;
             this.lblControlSearch.Text = "Search:";
             // 
-            // txtEditSearch
+            // txtEditSearchStudent
             // 
-            this.txtEditSearch.Location = new System.Drawing.Point(82, 40);
-            this.txtEditSearch.Name = "txtEditSearch";
-            this.txtEditSearch.Size = new System.Drawing.Size(234, 22);
-            this.txtEditSearch.TabIndex = 1;
+            this.txtEditSearchStudent.Location = new System.Drawing.Point(82, 40);
+            this.txtEditSearchStudent.Name = "txtEditSearchStudent";
+            this.txtEditSearchStudent.Size = new System.Drawing.Size(234, 22);
+            this.txtEditSearchStudent.TabIndex = 1;
             // 
             // txtEditYearLevel
             // 
@@ -227,94 +314,36 @@
             this.lblControlStudentData.TabIndex = 18;
             this.lblControlStudentData.Text = "STUDENT DATA";
             // 
-            // gridControl1
+            // labelControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(11, 68);
-            this.gridControl1.MainView = this.gridViewListOfStudent;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(549, 236);
-            this.gridControl1.TabIndex = 8;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewListOfStudent});
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Location = new System.Drawing.Point(294, -1);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(258, 25);
+            this.labelControl1.TabIndex = 35;
+            this.labelControl1.Text = "STUDENT DATA FORM";
             // 
-            // gridViewListOfStudent
+            // btnSearchStudent
             // 
-            this.gridViewListOfStudent.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.FirstName,
-            this.MiddleName,
-            this.LastName,
-            this.Age,
-            this.Course,
-            this.YearLevel});
-            this.gridViewListOfStudent.GridControl = this.gridControl1;
-            this.gridViewListOfStudent.Name = "gridViewListOfStudent";
-            // 
-            // FirstName
-            // 
-            this.FirstName.Caption = "First Name";
-            this.FirstName.FieldName = "FirstName";
-            this.FirstName.MinWidth = 25;
-            this.FirstName.Name = "FirstName";
-            this.FirstName.Visible = true;
-            this.FirstName.VisibleIndex = 0;
-            this.FirstName.Width = 94;
-            // 
-            // MiddleName
-            // 
-            this.MiddleName.Caption = "Middle Name";
-            this.MiddleName.FieldName = "MiddleName";
-            this.MiddleName.MinWidth = 25;
-            this.MiddleName.Name = "MiddleName";
-            this.MiddleName.Visible = true;
-            this.MiddleName.VisibleIndex = 1;
-            this.MiddleName.Width = 94;
-            // 
-            // LastName
-            // 
-            this.LastName.Caption = "Last Name";
-            this.LastName.FieldName = "LastName";
-            this.LastName.MinWidth = 25;
-            this.LastName.Name = "LastName";
-            this.LastName.Visible = true;
-            this.LastName.VisibleIndex = 2;
-            this.LastName.Width = 94;
-            // 
-            // Age
-            // 
-            this.Age.Caption = "Age";
-            this.Age.FieldName = "Age";
-            this.Age.MinWidth = 25;
-            this.Age.Name = "Age";
-            this.Age.Visible = true;
-            this.Age.VisibleIndex = 3;
-            this.Age.Width = 94;
-            // 
-            // Course
-            // 
-            this.Course.Caption = "Course";
-            this.Course.FieldName = "Course";
-            this.Course.MinWidth = 25;
-            this.Course.Name = "Course";
-            this.Course.Visible = true;
-            this.Course.VisibleIndex = 4;
-            this.Course.Width = 94;
-            // 
-            // YearLevel
-            // 
-            this.YearLevel.Caption = "Year Level";
-            this.YearLevel.FieldName = "YearLevel";
-            this.YearLevel.MinWidth = 25;
-            this.YearLevel.Name = "YearLevel";
-            this.YearLevel.Visible = true;
-            this.YearLevel.VisibleIndex = 5;
-            this.YearLevel.Width = 94;
+            this.btnSearchStudent.Appearance.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchStudent.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnSearchStudent.Appearance.Options.UseFont = true;
+            this.btnSearchStudent.Appearance.Options.UseForeColor = true;
+            this.btnSearchStudent.Location = new System.Drawing.Point(342, 35);
+            this.btnSearchStudent.Name = "btnSearchStudent";
+            this.btnSearchStudent.Size = new System.Drawing.Size(77, 29);
+            this.btnSearchStudent.TabIndex = 36;
+            this.btnSearchStudent.Text = "SEARCH";
+            this.btnSearchStudent.Click += new System.EventHandler(this.btnSearchStudent_Click);
             // 
             // StudentData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(871, 583);
-            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grpControlListOfStudent);
@@ -331,22 +360,21 @@
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.lblControlStudentData);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StudentData";
             this.Text = "Student Data";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.grpControlListOfStudent)).EndInit();
             this.grpControlListOfStudent.ResumeLayout(false);
             this.grpControlListOfStudent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEditSearch.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdControlListOfStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdViewListOfStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEditSearchStudent.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditYearLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditCourse.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditAge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditLastName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditMiddleName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEditFirstName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewListOfStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,12 +382,12 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton btnDelete;
+        private DevExpress.XtraEditors.SimpleButton btnRemove;
         private DevExpress.XtraEditors.SimpleButton btnUpdate;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraEditors.GroupControl grpControlListOfStudent;
         private DevExpress.XtraEditors.LabelControl lblControlSearch;
-        private DevExpress.XtraEditors.TextEdit txtEditSearch;
+        private DevExpress.XtraEditors.TextEdit txtEditSearchStudent;
         private DevExpress.XtraEditors.TextEdit txtEditYearLevel;
         private DevExpress.XtraEditors.TextEdit txtEditCourse;
         private DevExpress.XtraEditors.TextEdit txtEditAge;
@@ -373,14 +401,16 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl lblControlStudentData;
-        private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewListOfStudent;
+        private DevExpress.XtraGrid.GridControl grdControlListOfStudent;
+        private DevExpress.XtraGrid.Views.Grid.GridView grdViewListOfStudent;
         private DevExpress.XtraGrid.Columns.GridColumn FirstName;
         private DevExpress.XtraGrid.Columns.GridColumn MiddleName;
         private DevExpress.XtraGrid.Columns.GridColumn LastName;
         private DevExpress.XtraGrid.Columns.GridColumn Age;
         private DevExpress.XtraGrid.Columns.GridColumn Course;
         private DevExpress.XtraGrid.Columns.GridColumn YearLevel;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.SimpleButton btnSearchStudent;
     }
 }
 
